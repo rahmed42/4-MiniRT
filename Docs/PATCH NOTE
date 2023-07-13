@@ -1,0 +1,43 @@
+PB releves a corriger :
+
+- valeurs Color a print en entier (lors de list) ?
+- change 0 pos=-1.4,2,2
+donne : 0 C pos=(-1.39,2.00,2.00)
+
+*******************************************************************
+PATCHED NOTE :
+- FOV a afficher en degres faire rad*180/π
+D ailleurs si on fait change fov= il changera la valeur par une valeur en degres donc il passera de 1.2 a 90 degres apr exeple
+- add sp : ajoute bien un  sp pos=(0,0,0) rayon=0 color=(0,0,0)
+mais il remplis tout l'ecran en bleu
+- Parsing des cmd CHANGE
++ Parsing sur les ADD commands a l'ecran :
+Gestion du nombre d arguments
+Gestion des doublons dans les arguments
+Gestion des arguments non valides
+Gestion des valeurs limites
+- A tester les valeurs float type 0.1a45
+- Check nombre de variables sur la ligne, ok si incomplet ou range mais pas d erreur si un param de trop !
+- Gerer les tab ?
+- Added makefile full clean and multi OS Compilation
+- Executable ne se ferme pas si on clique sur la croix rouge (Ok avec ESC)
+- Segfault on print_error (if freed before malloc scene)
+- Segfault si :
+* CAS 1 :
+A 0.2 255,255,255
+C 0,0,0 0,0,1 70
+L -50,-75,0 0.99 255,255,255
+sp 0,0,200 20 255,0,0
+pl 0.0,0.0,400.0 0.0,1.0,0.0 0,0,225
+cy 30.0,0.0,200.6 -1.0,1.0,0.0 14.2 21.42		10,0,255
+
+* Cas 2 :
+A 0.2		255,255,255
+C 0,0,0 0,0,1 70
+L -50,-75,0 0.99 255,255,255
+sp 0,0,200 20 255,0,0
+pl 0.0,0.0,400.0 0.0,1.0,0.0 0,0,225
+cy 30.0,0.0,200.6 -1.0,1.0,0.0 14.2 21.42 10,0,255
+
+* Cas 3 - Si on envoie que 2 args a L il plante
+./MiniRT map/bad_content2.rt

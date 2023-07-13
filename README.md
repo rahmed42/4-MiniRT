@@ -1,1 +1,2 @@
-# 4-MiniRT
+# 42-MiniRT
+Raytracing program.
